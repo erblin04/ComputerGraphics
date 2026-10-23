@@ -1,0 +1,14 @@
+{
+  "name": "java-i",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.186.1",
+    "vite": "^8.3.4"
+  }
+}
