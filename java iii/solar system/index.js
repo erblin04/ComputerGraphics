@@ -13,14 +13,12 @@ const pointLight = new THREE.PointLight(0xffffff, 1);
 const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 scene.add(pointLight, ambientLight);
 
-//Dielli
 const sunGeometry = new THREE.SphereGeometry(1, 32, 32);
 const sunMaterial = new THREE.MeshStandardMaterial({ color: 0xffff00, wireframe: true });
 const sunMesh = new THREE.Mesh(sunGeometry, sunMaterial);
 scene.add(sunMesh);
 
 const earthOrbit = new THREE.Object3D();
-//Toka
 const earthGeometry = new THREE.SphereGeometry(0.5, 32, 32);
 const earthMaterial = new THREE.MeshStandardMaterial({ color: 0x000066, wireframe: true });
 const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
@@ -38,7 +36,25 @@ earthMesh.add(moonMesh);
 
 scene.add(earthOrbit);
 
-camera.position.z = 3;
+const marsOrbit = new THREE.Object3D();
+const marsGeometry = new THREE.SphereGeometry(0.3, 32, 32);
+const marsMaterial = new THREE.MeshStandardMaterial({ color: 0xc1440e, wireframe: true });
+const marsMesh = new THREE.Mesh(marsGeometry, marsMaterial);
+marsMesh.position.x = 3.5;
+marsOrbit.add(marsMesh);
+
+const phobosOrbit = new THREE.Object3D();
+marsMesh.add(phobosOrbit);
+
+const phobosGeometry = new THREE.SphereGeometry(0.06, 16, 16);
+const phobosMaterial = new THREE.MeshStandardMaterial({ color: 0x8b7d6b });
+const phobosMesh = new THREE.Mesh(phobosGeometry, phobosMaterial);
+phobosMesh.position.x = 0.45;
+phobosOrbit.add(phobosMesh);
+
+scene.add(marsOrbit);
+
+camera.position.set(0, 3, 6);
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -52,6 +68,9 @@ function animate() {
     sunMesh.rotation.y += 0.01;
     earthOrbit.rotation.y += 0.01;
     earthMesh.rotation.y += 0.02;
+    marsOrbit.rotation.y += 0.0053;
+    marsMesh.rotation.y += 0.02;
+    phobosOrbit.rotation.y += 0.05;
     renderer.render(scene, camera);
 }
 animate();

@@ -2,13 +2,32 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Java I</title>
+        <title>Task 3 - Robotic Hand</title>
         <style>
             body { margin: 0; overflow: hidden; }
             #scene canvas { display: block; }
+            #help {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                padding: 10px 14px;
+                background: rgba(255, 255, 255, 0.85);
+                font-family: sans-serif;
+                font-size: 14px;
+                line-height: 1.5;
+            }
         </style>
     </head>
     <body>
+        <div id="help">
+            <b>Q / A</b> - shoulder<br>
+            <b>W / S</b> - elbow<br>
+            <b>E / D</b> - wrist<br>
+            <b>1 - 5</b> - select finger (1 = thumb)<br>
+            <b>T / G</b> - bend / straighten selected finger<br>
+            <b>R / F</b> - close / open whole hand<br>
+            Selected finger: <b id="selected"></b>
+        </div>
         <div id="scene"></div>
         <script type="module" src="index.js"></script>
     </body>
